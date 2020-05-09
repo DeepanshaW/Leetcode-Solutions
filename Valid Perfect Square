@@ -29,3 +29,26 @@ class Solution {
     return false;
     }
 }
+
+////////////////////////////////////////////////////////////
+
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        long low=1;
+        long high=num;
+        return isNum(num,low,high);
+       
+    }
+    public boolean isNum(int num,long low,long high){
+        if(low<=high){
+        long mid=low+(high-low)/2;
+        if(num==mid*mid)
+            return true;
+        if(num<mid*mid)
+           return isNum(num,low,mid-1);
+        else
+           return isNum(num,mid+1,high);
+        }
+    return false;
+    }
+}
